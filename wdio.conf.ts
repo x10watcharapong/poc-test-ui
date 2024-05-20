@@ -65,7 +65,7 @@ export const config: Options.Testrunner = {
       "appium:deviceName": "emulator-5554",
       "appium:platformVersion": "14.0",
       "appium:automationName": "UiAutomator2",
-      "appium:app": "app/ApiDemos-debug.apk",
+      "appium:app": "/Users/pnpl/poc-test-ui/app/ApiDemos-debug.apk",
       // "appium:udid": "emulator-5554",
     },
   ],
@@ -117,7 +117,7 @@ export const config: Options.Testrunner = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services: ["appium"],
+  // services: ["appium"],
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber

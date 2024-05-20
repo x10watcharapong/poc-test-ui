@@ -3,10 +3,13 @@ export default class FastApiPage {
   static clickAccessAbility() {
     throw new Error("Method not implemented.");
   }
-  get animationButton() {
-    return $('//android.widget.TextView[@content-desc="Animation"]');
+  // static clickAccessAbility() {
+  //   throw new Error("Method not implemented.");
+  // }
+  get OKbtn() {
+    return $(`//android.widget.TextView[@content-desc="OS"]`);
   }
   async clickAccessAbility() {
-    await this.animationButton.click();
+    await this.OKbtn.click();
   }
 }
