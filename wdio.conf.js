@@ -23,6 +23,7 @@ exports.config = {
     //
     specs: [
         // ToDo: define location for spec files here
+        "test/specs/*.js"
     ],
     // Patterns to exclude.
     exclude: [
@@ -92,7 +93,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    // baseUrl: 'http://localhost:8080',
+    baseUrl: 'http://localhost',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 60000,
