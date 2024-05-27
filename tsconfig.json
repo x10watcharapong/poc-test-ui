@@ -1,31 +1,22 @@
 {
     "compilerOptions": {
-        "moduleResolution": "node",
-        "module": "ESNext",
-        "target": "es2022",
-        "lib": [
-            "es2022",
-            "dom"
-        ],
+        "outDir": "./.tsbuild/",
+        "sourceMap": false,
+        "target": "es2019",
+        "module": "commonjs",
+        "removeComments": true,
+        "noImplicitAny": true,
+        "strictPropertyInitialization": true,
+        "strictNullChecks": true,
         "types": [
             "node",
-            "@wdio/globals/types",
-            "expect-webdriverio",
+            "webdriverio/async",
             "@wdio/mocha-framework",
-            "@wdio/appium-service"
-        ],
-        "skipLibCheck": true,
-        "noEmit": true,
-        "allowImportingTsExtensions": true,
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "strict": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "noFallthroughCasesInSwitch": true
+            "expect-webdriverio",
+        ]
     },
     "include": [
-        "test",
-        "wdio.conf.ts"
+        "./config/**/*.ts",
+        "./tests/**/*.ts"
     ]
 }

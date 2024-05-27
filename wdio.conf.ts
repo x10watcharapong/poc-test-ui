@@ -9,7 +9,7 @@ export const config: Options.Testrunner = {
   autoCompileOpts: {
     autoCompile: true,
     tsNodeOpts: {
-      project: "./tsconfig.json",
+      project: "./tsconfig.e2e.json",
       transpileOnly: true,
     },
   },
@@ -30,7 +30,10 @@ export const config: Options.Testrunner = {
   // The path of the spec files will be resolved relative from the directory of
   // of the config file unless it's absolute.
   //
-  specs: ["./test/specs/**/*.ts"],
+  specs: [
+    // ToDo: define location for spec files here
+    "test/specs/login.spec.ts",
+  ],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -60,13 +63,12 @@ export const config: Options.Testrunner = {
   capabilities: [
     {
       // capabilities for local Appium web tests on an Android Emulator
-      "appium:platformName": "Android",
+      platformName: "Android",
       // browserName: 'Chrome',
       "appium:deviceName": "emulator-5554",
       "appium:platformVersion": "14.0",
       "appium:automationName": "UiAutomator2",
-      "appium:app": "app/ApiDemos-debug.apk",
-      // "appium:udid": "emulator-5554",
+      // "appium:fullReset": true,
     },
   ],
 
@@ -104,7 +106,7 @@ export const config: Options.Testrunner = {
   // baseUrl: 'http://localhost:8080',
   //
   // Default timeout for all waitFor* commands.
-  waitforTimeout: 10000,
+  waitforTimeout: 60000,
   //
   // Default timeout in milliseconds for request
   // if browser driver or grid doesn't send response
@@ -117,7 +119,7 @@ export const config: Options.Testrunner = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services: ["appium"],
+  // services: ["appium"],
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
