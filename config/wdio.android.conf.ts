@@ -4,7 +4,7 @@ import config from "../config/wdio.shared.local.conf";
 // ============
 // Specs
 // ============
-config.specs = ["../tests/specs/*.ts"];
+config.specs = ["../test/specs/*.ts"];
 
 // ============
 // Capabilities

@@ -1,4 +1,4 @@
-const Login = require("../pageObjects/login.screen");
+const Login = require("../pageObjects/login.page");
 
 describe("Proceed to login", () => {
   it("Perform login fail", async () => {

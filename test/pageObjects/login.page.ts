@@ -21,13 +21,13 @@ export class Login {
     return $('//android.widget.Button[@text="Sign in"]');
   }
 
-  get unauthorizedTextPopUp() {
+  get unauthorizedTextPopUp(): Promise<string> {
     return $(
       "ไม่สามารถดำเนินการได้ ทีทีบี ขออภัยในความไม่สะดวก โปรดลองใหม่อีกครั้งภายหลัง"
     );
   }
 
-  async clickLoginBtn(): Promise<void> {
+  async clickLoginBtn() {
     await this.loginBtn.click();
   }
 
