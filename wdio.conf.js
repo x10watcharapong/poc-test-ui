@@ -53,10 +53,12 @@ exports.config = {
     capabilities: [{
         // capabilities for local Appium web tests on an Android Emulator
         platformName: 'Android',
-        browserName: 'Chrome',
-        'appium:deviceName': 'Android GoogleAPI Emulator',
-        'appium:platformVersion': '12.0',
-        'appium:automationName': 'UiAutomator2'
+        browserName: '',
+        'appium:deviceName': 'emulator-5554',
+        'appium:platformVersion': '14.0',
+        'appium:automationName': 'UiAutomator2',
+        'appium:app':'/Users/x10/Github/poc-test-ui/app/1.0.72-dev (100).apk',
+        'appium:fullReset': true
     }],
 
     //
@@ -93,7 +95,7 @@ exports.config = {
     // baseUrl: 'http://localhost:8080',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 60000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
