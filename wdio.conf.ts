@@ -1,4 +1,5 @@
 import type { Options } from "@wdio/types";
+import { join } from "path";
 export const config: Options.Testrunner = {
   //
   // ====================
@@ -13,7 +14,9 @@ export const config: Options.Testrunner = {
       transpileOnly: true,
     },
   },
-
+  // path: "/wd/hub",
+  hostname: "127.0.0.1",
+  protocol: "http",
   port: 4723,
   //
   // ==================
@@ -32,7 +35,7 @@ export const config: Options.Testrunner = {
   //
   specs: [
     // ToDo: define location for spec files here
-    "test/specs/login.spec.ts",
+    "test/specs/**/*.spec.ts",
   ],
   // Patterns to exclude.
   exclude: [
@@ -64,11 +67,16 @@ export const config: Options.Testrunner = {
     {
       // capabilities for local Appium web tests on an Android Emulator
       platformName: "Android",
-      // browserName: 'Chrome',
+      // browserName: "",
       "appium:deviceName": "emulator-5554",
       "appium:platformVersion": "14.0",
       "appium:automationName": "UiAutomator2",
-      // "appium:fullReset": true,
+      "appium:app": join(process.cwd(), "./app/1.0.72-dev (100).apk"),
+      "appium:noReset": false,
+      // "appium:autoGrantPermissions": true,
+      "appium:appActivity": "com.ttbbank.top.MainActivity",
+      "appium:appPackage": "com.ttbbank.top.dev",
+      // webviewDevToolsPort: "9222",
     },
   ],
 
@@ -103,7 +111,7 @@ export const config: Options.Testrunner = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  // baseUrl: 'http://localhost:8080',
+  baseUrl: "",
   //
   // Default timeout for all waitFor* commands.
   waitforTimeout: 60000,
@@ -204,7 +212,11 @@ export const config: Options.Testrunner = {
    * @param {object}         browser      instance of created browser/device session
    */
   // before: function (capabilities, specs) {
+  //   console.log("Before hook executed");
+  //   console.log("Capabilities:", capabilities);
+  //   console.log("Specs:", specs);
   // },
+
   /**
    * Runs before a WebdriverIO command gets executed.
    * @param {string} commandName hook command name

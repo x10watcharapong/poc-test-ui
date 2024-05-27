@@ -2,7 +2,7 @@
     "compilerOptions": {
         "outDir": "./.tsbuild/",
         "sourceMap": false,
-        "target": "ES2022",
+        "target": "es2022",
         "module": "commonjs",
         "removeComments": true,
         "noImplicitAny": true,
@@ -10,13 +10,20 @@
         "strictNullChecks": true,
         "types": [
             "node",
-            "webdriverio/async",
             "@wdio/mocha-framework",
             "expect-webdriverio",
-        ]
+            "@wdio/globals/types",
+        ],
+        "allowJs": true,
+        "checkJs": true,
+        "declaration": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        // "skipLibCheck": true
     },
     "include": [
         "./config/**/*.ts",
-        "./tests/**/*.ts"
+        "./test/**/*.ts"
     ]
 }

@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/webdriverio": "^5.0.0",
     "@wdio/allure-reporter": "^8.38.0",
     "@wdio/appium-service": "^8.38.0",
     "@wdio/cli": "^8.38.0",
@@ -21,6 +23,7 @@
     "appium": "^2.5.4",
     "appium-uiautomator2-driver": "^3.5.2",
     "dotenv": "^16.4.5",
+    "expect": "^29.7.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   }

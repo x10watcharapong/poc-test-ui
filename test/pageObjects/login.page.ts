@@ -1,4 +1,4 @@
-export class Login {
+export default class Login {
   get loginBtn() {
     return $('//android.widget.Button[@content-desc="เข้าสู่ระบบ"]');
   }
@@ -18,13 +18,23 @@ export class Login {
   }
 
   get webkitSignInBtn() {
-    return $('//android.widget.Button[@text="Sign in"]');
+    return $("android.widget.Button");
   }
 
-  get unauthorizedTextPopUp(): Promise<string> {
+  get chromeOptionBtn() {
+    return $("Customize and control Google Chrome");
+  }
+
+  get openInEdgeBrowserBtn() {
     return $(
-      "ไม่สามารถดำเนินการได้ ทีทีบี ขออภัยในความไม่สะดวก โปรดลองใหม่อีกครั้งภายหลัง"
+      '//android.widget.TextView[@resource-id="com.microsoft.emmx:id/menu_item_text" and @text="Open in Edge browser"]'
     );
+  }
+
+  async unauthorizedTextPopUp(): Promise<string> {
+    return await $(
+      "ไม่สามารถดำเนินการได้ ทีทีบี ขออภัยในความไม่สะดวก โปรดลองใหม่อีกครั้งภายหลัง"
+    ).getText();
   }
 
   async clickLoginBtn() {
@@ -45,10 +55,19 @@ export class Login {
   }
 
   async fillPassword(password: string) {
+    await this.webkitPasswordText.waitForDisplayed({ timeout: 10000 });
     await this.webkitPasswordText.setValue(password);
   }
 
   async clickWebkitSignInBtn() {
     await this.webkitSignInBtn.click();
+  }
+
+  async clickChromeOptionBtn() {
+    await this.chromeOptionBtn.click();
+  }
+
+  async clickOpenInEdgeBrowserBtn() {
+    await this.openInEdgeBrowserBtn.click();
   }
 }

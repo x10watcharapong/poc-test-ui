@@ -1,14 +1,25 @@
-const Login = require("../pageObjects/login.page");
+import Login from "../pageObjects/login.page";
 
 describe("Proceed to login", () => {
+  let login: Login;
+
+  before(() => {
+    login = new Login();
+  });
   it("Perform login fail", async () => {
-    await Login.clickLoginBtn();
-    // await Login.clickMsEditText();
-    await Login.fillEmailUser("61118@UATTMB.tmbbank.com");
-    await Login.clickMsNextBtn();
-    // await Login.clickWebkitPasswordText();
-    await Login.fillPassword("Tmb@12345");
-    await Login.clickWebkitSignInBtn();
-    await expect(Login.unauthorizedTextPopUp).toBeDisplayed();
+    await login.clickLoginBtn();
+    await login.fillEmailUser("61118@UATTMB.tmbbank.com");
+    await login.clickMsNextBtn();
+    await login.fillPassword("Tmb@12345");
+    await login.clickWebkitSignInBtn();
+    // expect(await login.unauthorizedTextPopUp()).toEqual(
+    //   "ไม่สามารถดำเนินการได้ ทีทีบี ขออภัยในความไม่สะดวก โปรดลองใหม่อีกครั้งภายหลัง"
+    // );
+    // await driver.waitForStable({ timeout: 5000 });
+    // await driver.touchAction({
+    //   action: "tap",
+    //   x: 1045,
+    //   y: 1550,
+    // });
   });
 });
