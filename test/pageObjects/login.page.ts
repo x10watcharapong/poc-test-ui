@@ -38,6 +38,7 @@ export default class Login {
   }
 
   async clickLoginBtn() {
+    await this.loginBtn.waitForDisplayed({ timeout: 10000 });
     await this.loginBtn.click();
   }
 

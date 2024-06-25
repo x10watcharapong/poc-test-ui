@@ -57,7 +57,7 @@ export const config: Options.Testrunner = {
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
   //
-  maxInstances: 10,
+  maxInstances: 2,
   //
   // If you have trouble getting all important capabilities together, check out the
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -68,7 +68,22 @@ export const config: Options.Testrunner = {
       // capabilities for local Appium web tests on an Android Emulator
       platformName: "Android",
       // browserName: "",
-      "appium:deviceName": "emulator-5554",
+      "appium:udid": "emulator-5554",
+      "appium:platformVersion": "14.0",
+      "appium:automationName": "UiAutomator2",
+      "appium:app": join(process.cwd(), "./app/1.0.72-dev (100).apk"),
+      "appium:noReset": false,
+      // "appium:autoGrantPermissions": true,
+      "appium:appActivity": "com.ttbbank.top.MainActivity",
+      "appium:appPackage": "com.ttbbank.top.dev",
+      // webviewDevToolsPort: "9222",
+    },
+
+    {
+      // capabilities for local Appium web tests on an Android Emulator
+      platformName: "Android",
+      // browserName: "",
+      "appium:udid": "emulator-5556",
       "appium:platformVersion": "14.0",
       "appium:automationName": "UiAutomator2",
       "appium:app": join(process.cwd(), "./app/1.0.72-dev (100).apk"),
@@ -79,7 +94,20 @@ export const config: Options.Testrunner = {
       // webviewDevToolsPort: "9222",
     },
   ],
-
+  // services: [
+  //   [
+  //     "appium",
+  //     {
+  //       logPath: "./",
+  //     },
+  //   ],
+  // ],
+  // framework: "mocha",
+  // reporters: ["spec"],
+  // mochaOpts: {
+  //   ui: "bdd",
+  //   timeout: 60000,
+  // },
   //
   // ===================
   // Test Configurations

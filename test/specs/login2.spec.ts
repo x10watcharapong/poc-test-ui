@@ -6,10 +6,9 @@ describe("Proceed to login", () => {
   before(() => {
     login = new Login();
   });
-  it("Perform login fail", async () => {
+  it("Perform login fail2", async () => {
     await driver.pause(10000);
     await login.clickLoginBtn();
-
     await login.fillEmailUser("61118@UATTMB.tmbbank.com");
     await login.clickMsNextBtn();
     await login.fillPassword("Tmb@12345");
